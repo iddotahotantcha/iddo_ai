@@ -1,17 +1,20 @@
-import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/material.dart';
 import 'package:iddo_ai/constant.dart';
-import 'package:iddo_ai/register/register_screen.dart';
+import 'package:iddo_ai/login/login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  bool _obscureText = true; // État pour masquer/afficher le texte
+class _RegisterScreenState extends State<RegisterScreen> {
+  bool _obscureTextPasse =
+      true; // État pour masquer/afficher le texte pour le password
+  bool _obscureTextPasseConfirm =
+      true; // État pour masquer/afficher le texte pour la confirmation du password
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   FadeInUp(
                       duration: Duration(milliseconds: 1300),
                       child: Text(
-                        "Connectez-vous !",
+                        "Inscrivez-vous !",
                         style: TextStyle(color: Colors.white, fontSize: 18.0),
                       )),
                 ],
@@ -108,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     color:
                                                         Colors.grey.shade200))),
                                         child: TextField(
-                                          obscureText: _obscureText,
+                                          obscureText: _obscureTextPasse,
                                           decoration: InputDecoration(
                                             hintText: "Mots de passe",
                                             hintStyle:
@@ -116,15 +119,46 @@ class _LoginScreenState extends State<LoginScreen> {
                                             border: InputBorder.none,
                                             suffixIcon: IconButton(
                                               icon: Icon(
-                                                _obscureText
+                                                _obscureTextPasse
                                                     ? Icons.visibility_off
                                                     : Icons.visibility,
                                                 color: Colors.grey,
                                               ),
                                               onPressed: () {
                                                 setState(() {
-                                                  _obscureText =
-                                                      !_obscureText; // Inverser l'état
+                                                  _obscureTextPasse =
+                                                      !_obscureTextPasse; // Inverser l'état
+                                                });
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.all(10.0),
+                                        decoration: BoxDecoration(
+                                            border: Border(
+                                                bottom: BorderSide(
+                                                    color: Colors.grey.shade200))),
+                                        child: TextField(
+                                          obscureText: _obscureTextPasseConfirm,
+                                          decoration: InputDecoration(
+                                            hintText:
+                                                "Confirmer le mots de passe",
+                                            hintStyle:
+                                                TextStyle(color: Colors.grey),
+                                            border: InputBorder.none,
+                                            suffixIcon: IconButton(
+                                              icon: Icon(
+                                                _obscureTextPasseConfirm
+                                                    ? Icons.visibility_off
+                                                    : Icons.visibility,
+                                                color: Colors.grey,
+                                              ),
+                                              onPressed: () {
+                                                setState(() {
+                                                  _obscureTextPasseConfirm =
+                                                      !_obscureTextPasseConfirm; // Inverser l'état
                                                 });
                                               },
                                             ),
@@ -135,20 +169,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 )),
                             SizedBox(height: 15.0),
-                            FadeInUp(
-                                duration: Duration(milliseconds: 1500),
-                                child: InkWell(
-                                  onTap: () {},
-                                  child: Text(
-                                    "Mots de passe oublié?",
-                                    style: TextStyle(
-                                      color: gradient1,
-                                      decoration: TextDecoration.underline,
-                                      decorationColor: gradient1,
-                                    ),
-                                  ),
-                                )),
-                            SizedBox(height: 10.0),
                             FadeInUp(
                                 duration: Duration(milliseconds: 1600),
                                 child: MaterialButton(
@@ -163,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   // ),
                                   child: Center(
                                     child: Text(
-                                      "Connexion",
+                                      "Inscription",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
@@ -268,7 +288,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Je n'ai pas de compte?",
+                    Text("J'ai déjà un compte?",
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -279,10 +299,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => RegisterScreen()),
+                              builder: (context) => LoginScreen()),
                         );
                       },
-                      child: Text("Inscription",
+                      child: Text("Connexion",
                           style: TextStyle(
                             color: gradient1,
                             fontWeight: FontWeight.bold,
