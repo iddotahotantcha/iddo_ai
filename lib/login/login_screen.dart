@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:iddo_ai/after_login/chat_screen.dart';
 import 'package:iddo_ai/constant.dart';
 import 'package:iddo_ai/register/register_screen.dart';
 
@@ -152,7 +153,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             FadeInUp(
                                 duration: Duration(milliseconds: 1600),
                                 child: MaterialButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ChatScreen()),
+                                    );
+                                  },
                                   height: 50.0,
                                   // margin: EdgeInsets.symmetric(horizontal: 50),
                                   color: Colors.orange[900],
