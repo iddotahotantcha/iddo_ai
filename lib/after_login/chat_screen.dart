@@ -120,38 +120,110 @@ class _ChatScreenState extends State<ChatScreen> {
         height: screenHeight,
         width: screenWidth,
         decoration: BoxDecoration(
-            gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-          gradient1,
-          gradient2,
-          gradient3,
-        ])),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [],
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            colors: [gradient1, gradient2, gradient3],
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  padding:
+                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  constraints: BoxConstraints(
+                    maxWidth: screenWidth * 0.7,
+                  ),
+                  decoration: BoxDecoration(
+                    color: gradient3,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(0.0),
+                      topRight: Radius.circular(15.0),
+                      bottomLeft: Radius.circular(15.0),
+                      bottomRight: Radius.circular(15.0),
+                    ),
+                  ),
+                  child: Text(
+                    "Salut ! Comment ça va ?Salut ! Je vais bien et toi ?Salut ! Je vais bien et toi ?Salut ! Je vais bien et toi ?",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  padding:
+                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  constraints: BoxConstraints(
+                    maxWidth: screenWidth * 0.7,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[500],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(0.0),
+                      bottomLeft: Radius.circular(15.0),
+                      bottomRight: Radius.circular(15.0),
+                    ),
+                  ),
+                  child: Text(
+                    "Salut ! Je vais bien et toi ?Salut ! Je vais bien et toi ?Salut ! Je vais bien et toi ?Salut ! Je vais bien et toi ?Salut ! Je vais bien et toi ?Salut ! Je vais bien et toi ?",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(
-          left: 20.0
-        ),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-            hintText: "Dites quelques choses",
-            hintStyle: TextStyle(
-              color: Colors.white
-            ),
-            suffixIcon: IconButton(
-              icon: Icon(
-                Icons.send,
-                color: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          decoration: BoxDecoration(
+            color: Colors.white, // Fond blanc pour un meilleur contraste
+            borderRadius: BorderRadius.circular(25.0), // Bordures arrondies
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 10,
+                spreadRadius: 2,
+                offset: Offset(0, 3), // Ombre en bas
               ),
-              onPressed: () {
-                //
-              },
-            ),
+            ],
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none, // Supprime la bordure par défaut
+                    hintText: "Dites quelque chose...",
+                    hintStyle: TextStyle(color: Colors.grey[500]),
+                  ),
+                ),
+              ),
+              SizedBox(width: 5),
+              GestureDetector(
+                onTap: () {
+                  // Action lors de l'envoi du message
+                },
+                child: CircleAvatar(
+                  backgroundColor: gradient1,
+                  radius: 22,
+                  child: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
