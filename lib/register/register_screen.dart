@@ -66,13 +66,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       topRight: Radius.circular(60.0)),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: ListView(
+                  padding: EdgeInsets.only(
+                    left: 30.0,
+                    right: 30.0,
+                    bottom: 30.0,
+                    top: 20.0,
+                  ),
+                  child: Column(
                     children: [
                       Expanded(
-                        child: Column(
+                        child: ListView(
                           children: <Widget>[
-                            SizedBox(height: 60.0),
                             FadeInUp(
                                 duration: Duration(milliseconds: 1400),
                                 child: Container(
@@ -139,7 +143,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                         decoration: BoxDecoration(
                                             border: Border(
                                                 bottom: BorderSide(
-                                                    color: Colors.grey.shade200))),
+                                                    color:
+                                                        Colors.grey.shade200))),
                                         child: TextField(
                                           obscureText: _obscureTextPasseConfirm,
                                           decoration: InputDecoration(
@@ -190,14 +195,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     ),
                                   ),
                                 )),
-                            SizedBox(height: 50.0),
+                            SizedBox(height: 20.0),
                             FadeInUp(
                                 duration: Duration(milliseconds: 1700),
                                 child: Text(
                                   "Ou continuer avec",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(color: Colors.grey),
                                 )),
-                            SizedBox(height: 50.0),
+                            SizedBox(height: 20.0),
                             Row(
                               children: <Widget>[
                                 Expanded(
@@ -225,7 +231,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold,
-                                                    fontSize: 18.0,
+                                                    fontSize: 15.0,
                                                   )),
                                             ],
                                           ),
@@ -259,12 +265,53 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 18.0,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                             ],
                                           ),
                                         ),
+                                      )),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 35.0),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: FadeInUp(
+                                      duration: Duration(milliseconds: 1800),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text("J'ai déjà un compte?",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15.0,
+                                              )),
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        LoginScreen()),
+                                              );
+                                            },
+                                            child: Text("Connexion",
+                                                style: TextStyle(
+                                                  color: gradient1,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15.0,
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                  decorationColor: gradient1,
+                                                  decorationThickness: 2.0,
+                                                )),
+                                          ),
+                                        ],
                                       )),
                                 ),
                               ],
@@ -279,43 +326,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: Row(
-        children: <Widget>[
-          Expanded(
-            child: FadeInUp(
-                duration: Duration(milliseconds: 1800),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("J'ai déjà un compte?",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                        )),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()),
-                        );
-                      },
-                      child: Text("Connexion",
-                          style: TextStyle(
-                            color: gradient1,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                            decoration: TextDecoration.underline,
-                            decorationColor: gradient1,
-                            decorationThickness: 2.0,
-                          )),
-                    ),
-                  ],
-                )),
-          ),
-        ],
       ),
     );
   }
