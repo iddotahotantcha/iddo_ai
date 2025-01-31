@@ -64,13 +64,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       topRight: Radius.circular(60.0)),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: ListView(
+                  padding: EdgeInsets.only(
+                    left: 30.0,
+                    right: 30.0,
+                    bottom: 30.0,
+                    top: 20.0,
+                  ),
+                  child: Column(
                     children: [
                       Expanded(
-                        child: Column(
+                        child: ListView(
                           children: <Widget>[
-                            SizedBox(height: 60.0),
                             FadeInUp(
                                 duration: Duration(milliseconds: 1400),
                                 child: Container(
@@ -142,6 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   onTap: () {},
                                   child: Text(
                                     "Mots de passe oublié?",
+                                    textAlign: TextAlign.right,
                                     style: TextStyle(
                                       color: gradient1,
                                       decoration: TextDecoration.underline,
@@ -149,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 )),
-                            SizedBox(height: 10.0),
+                            SizedBox(height: 15.0),
                             FadeInUp(
                                 duration: Duration(milliseconds: 1600),
                                 child: MaterialButton(
@@ -157,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => ChatScreen()),
+                                          builder: (context) => ChatScreen()),
                                     );
                                   },
                                   height: 50.0,
@@ -177,14 +182,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                 )),
-                            SizedBox(height: 50.0),
+                            SizedBox(height: 30.0),
                             FadeInUp(
                                 duration: Duration(milliseconds: 1700),
                                 child: Text(
                                   "Ou continuer avec",
-                                  style: TextStyle(color: Colors.grey),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
                                 )),
-                            SizedBox(height: 50.0),
+                            SizedBox(height: 30.0),
                             Row(
                               children: <Widget>[
                                 Expanded(
@@ -212,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold,
-                                                    fontSize: 18.0,
+                                                    fontSize: 15.0,
                                                   )),
                                             ],
                                           ),
@@ -246,12 +254,53 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 style: TextStyle(
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.bold,
-                                                  fontSize: 18.0,
+                                                  fontSize: 15.0,
                                                 ),
                                               ),
                                             ],
                                           ),
                                         ),
+                                      )),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 50.0),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: FadeInUp(
+                                      duration: Duration(milliseconds: 1800),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text("Je n'ai pas de compte?",
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15.0,
+                                              )),
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        RegisterScreen()),
+                                              );
+                                            },
+                                            child: Text("Inscription",
+                                                style: TextStyle(
+                                                  color: gradient1,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15.0,
+                                                  decoration:
+                                                      TextDecoration.underline,
+                                                  decorationColor: gradient1,
+                                                  decorationThickness: 2.0,
+                                                )),
+                                          ),
+                                        ],
                                       )),
                                 ),
                               ],
@@ -266,43 +315,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: Row(
-        children: <Widget>[
-          Expanded(
-            child: FadeInUp(
-                duration: Duration(milliseconds: 1800),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Je n'ai pas de compte?",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                        )),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegisterScreen()),
-                        );
-                      },
-                      child: Text("Inscription",
-                          style: TextStyle(
-                            color: gradient1,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18.0,
-                            decoration: TextDecoration.underline,
-                            decorationColor: gradient1,
-                            decorationThickness: 2.0,
-                          )),
-                    ),
-                  ],
-                )),
-          ),
-        ],
       ),
     );
   }
