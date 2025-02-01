@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:iddo_ai/after_login/chat_screen.dart';
+import 'package:iddo_ai/after_login/after_login_screen.dart';
 import 'package:iddo_ai/constant.dart';
 import 'package:iddo_ai/register/register_screen.dart';
 
@@ -162,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ChatScreen()),
+                                          builder: (context) => AfterLoginScreen()),
                                     );
                                   },
                                   height: 50.0,
