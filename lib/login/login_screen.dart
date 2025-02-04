@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   FadeInUp(
                       duration: Duration(milliseconds: 1000),
                       child: Text(
-                        "Iddo AI",
+                        "Iddo IA",
                         style: TextStyle(color: Colors.white, fontSize: 40.0),
                       )),
                   SizedBox(height: 10.0),
