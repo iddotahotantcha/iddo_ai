@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "548899123568",
+    "project_id": "iddo-ia",
+    "storage_bucket": "iddo-ia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548899123568:android:497c8a615f672fe631dfb5",
+        "android_client_info": {
+          "package_name": "com.example.iddo_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM0MBfttuzqF8WAKPmcZmXAqsUhTo9cpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
